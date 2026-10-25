@@ -1,0 +1,12 @@
+# 憑證与环境
+.env
+.env.*
+# 暫存
+_raw/
+*.tmp
+# 簡報產生器的暫存資源
+簡報/src/bg/
+簡報/src/ops.json
+# 打包產物
+node_modules/
+_site/

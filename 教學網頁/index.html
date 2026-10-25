@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>奇妙的溶解｜翰林三上自然 第4單元</title>
+<meta name="description" content="國小三年級自然「奇妙的溶解」教學網頁：4 節課課程地圖、互動實驗、教學簡報、10 題測驗、參考影片、抽籤計時器與兩人對戰。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --bg:#FAF7F0; --bg2:#F3EEE1; --card:#FFFFFF;
+    --ink:#1D4E5F; --ink2:#6E8A94; --ink3:#9DB0B7;
+    --accent:#C86A2B; --accent-soft:#F7E7D8;
+    --n:#2C7FB8; --s:#C86A2B;
+    --line:#E4DCCC; --ok:#3F7D5A; --bad:#B4483C;
+    --radius:18px; --maxw:1080px;
+    --shadow:0 2px 10px rgba(29,78,95,.06), 0 12px 30px rgba(29,78,95,.05);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"微軟正黑體","Microsoft JhengHei","Noto Sans TC","PingFang TC",system-ui,sans-serif;
+    line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block}
+  a{color:var(--accent); text-decoration:none}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+  .eyebrow{font-size:13px; letter-spacing:.16em; color:var(--accent); font-weight:700; margin:0 0 8px}
+  h2{font-size:30px; margin:0 0 10px; letter-spacing:.01em}
+  h3{font-size:19px; margin:0 0 8px}
+  .lead{color:var(--ink2); margin:0 0 28px; font-size:16px}
+  section{padding:64px 0; border-top:1px solid var(--line)}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+    background:var(--ink); color:#fff; border:0; border-radius:999px;
+    padding:12px 22px; font-size:15px; font-family:inherit; font-weight:600;
+    transition:.2s; text-decoration:none;
+  }
+  .btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(53,84,74,.2)}
+  .btn.accent{background:var(--accent)}
+  .btn.ghost{background:transparent; color:var(--ink); border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--ink); box-shadow:none}
+  .btn:disabled{opacity:.45; cursor:not-allowed; transform:none; box-shadow:none}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+
+  /* ── 導覽 ── */
+  .nav{position:sticky; top:0; z-index:50; background:rgba(250,247,240,.94);
+       backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex; align-items:center; gap:6px; height:56px; overflow-x:auto; scrollbar-width:none}
+  .nav .wrap::-webkit-scrollbar{display:none}
+  .nav .brand{font-weight:700; margin-right:10px; white-space:nowrap; color:var(--ink)}
+  .nav a{padding:6px 12px; border-radius:999px; font-size:14px; color:var(--ink2); white-space:nowrap}
+  .nav a:hover{background:var(--bg2); color:var(--ink)}
+
+  /* ── Hero ── */
+  .hero{padding:72px 0 56px; border-top:0}
+  .hero .wrap{display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center}
+  .hero h1{font-size:56px; line-height:1.15; margin:6px 0 14px; letter-spacing:.02em}
+  .hero .sub{font-size:17px; color:var(--ink2); margin:0 0 26px; max-width:30em}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px}
+  .chip{background:var(--card); border:1px solid var(--line); border-radius:999px;
+        padding:6px 14px; font-size:13.5px; color:var(--ink2)}
+  .chip b{color:var(--ink)}
+  .hero-art{position:relative}
+  .hero-art img{filter:saturate(.9)}
+  .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
+
+  /* ── 課程地圖 ── */
+  .lessons{display:grid; gap:16px}
+  .lesson{display:grid; grid-template-columns:76px 1fr; gap:20px; padding:22px 24px; align-items:start}
+  .lesson .no{font-size:34px; font-weight:800; color:var(--accent); line-height:1; text-align:center}
+  .lesson .no small{display:block; font-size:11px; color:var(--ink3); font-weight:600; letter-spacing:.1em; margin-top:6px}
+  .lesson h3{margin-bottom:4px; font-size:20px}
+  .lesson .goal{color:var(--ink2); font-size:15px; margin:0 0 10px}
+  .lesson .acts{display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0; list-style:none}
+  .lesson .acts li{font-size:13px; background:var(--bg2); border-radius:8px; padding:4px 10px; color:var(--ink)}
+  .lesson .imgs{display:flex; gap:6px; margin-top:12px; flex-wrap:wrap}
+  .lesson .imgs img{width:52px; height:52px; object-fit:contain; background:#fff; border:1px solid var(--line); border-radius:8px; padding:3px}
+
+  /* ── 互動實驗室 ── */
+  .labs{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .lab{padding:22px; display:flex; flex-direction:column}
+  .lab .tag{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:.1em}
+  .lab h3{margin:4px 0 6px}
+  .lab p.hint{font-size:13.5px; color:var(--ink2); margin:0 0 14px; min-height:40px}
+  .lab .stage{background:var(--bg2); border-radius:12px; padding:14px; flex:1; display:flex;
+              flex-direction:column; justify-content:center; align-items:center; min-height:200px; text-align:center}
+  .lab .stage img{max-height:120px; object-fit:contain}
+  .lab .name{font-weight:700; margin-top:8px}
+  .lab .opts{display:flex; gap:8px; margin-top:14px; width:100%}
+  .lab .opts button{flex:1; padding:10px; border-radius:10px; border:1.5px solid var(--line);
+                    background:#fff; font-family:inherit; font-size:14px; cursor:pointer; color:var(--ink)}
+  .lab .opts button:hover{border-color:var(--ink)}
+  .lab .fb{margin-top:12px; font-size:14px; min-height:44px}
+  .lab .fb.ok{color:var(--ok)} .lab .fb.bad{color:var(--bad)}
+  .progress{font-size:12.5px; color:var(--ink3); margin-top:8px}
+
+  /* ── 簡報播放器 ── */
+  .deck{max-width:960px; margin:0 auto}
+  .deck .frame{position:relative; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:#fff; box-shadow:var(--shadow)}
+  .deck .frame img{width:100%; aspect-ratio:16/9; object-fit:contain; background:#fff}
+  .deck .bar{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px}
+  .deck .count{font-size:14px; color:var(--ink2); font-variant-numeric:tabular-nums}
+  .deck .thumbs{display:flex; gap:8px; overflow-x:auto; padding:14px 2px 4px}
+  .deck .thumbs img{width:92px; border-radius:6px; border:2px solid transparent; cursor:pointer; opacity:.6}
+  .deck .thumbs img:hover{opacity:1}
+  .deck .thumbs img.on{border-color:var(--accent); opacity:1}
+
+  /* ── 測驗 ── */
+  .quiz{max-width:760px; margin:0 auto}
+  .qcard{padding:28px}
+  .qimg{max-height:170px; margin:0 auto 18px}
+  .qhead{display:flex; gap:12px; align-items:flex-start; margin:0 0 20px}
+  .qtext{font-size:21px; font-weight:700; margin:0; line-height:1.6; flex:1}
+  .speak{flex:none; display:inline-flex; align-items:center; gap:6px; border:1.5px solid var(--line);
+         background:#fff; color:var(--ink); border-radius:999px; padding:8px 15px; font-size:13.5px;
+         font-family:inherit; cursor:pointer; white-space:nowrap; line-height:1.4; transition:.15s}
+  .speak:hover{border-color:var(--accent); color:var(--accent)}
+  .speak.on{background:var(--accent); border-color:var(--accent); color:#fff}
+  .qopts{display:grid; gap:10px}
+  .qopt{display:flex; gap:12px; align-items:flex-start; text-align:left; padding:14px 16px;
+        border:1.5px solid var(--line); background:#fff; border-radius:12px; cursor:pointer;
+        font-family:inherit; font-size:16px; color:var(--ink); transition:.15s}
+  .qopt:hover:not(:disabled){border-color:var(--ink); background:var(--bg)}
+  .qopt .k{font-weight:800; color:var(--ink3); min-width:18px}
+  .qopt.ok{border-color:var(--ok); background:#EEF6F0}
+  .qopt.ok .k{color:var(--ok)}
+  .qopt.bad{border-color:var(--bad); background:#FBEFED}
+  .qopt.bad .k{color:var(--bad)}
+  .qfb{margin-top:16px; padding:14px 16px; border-radius:12px; background:var(--bg2); font-size:15px; display:none}
+  .qfb.show{display:block}
+  .qfb b{color:var(--ink)}
+  .qbar{margin-top:18px; display:flex; justify-content:space-between; align-items:center; font-size:14px; color:var(--ink2)}
+  .result{text-align:center; padding:28px}
+  .result .score{font-size:64px; font-weight:800; color:var(--accent); line-height:1}
+  .result .score small{font-size:20px; color:var(--ink3); font-weight:600}
+
+  /* ── 影片 ── */
+  .videos{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .video{overflow:hidden; display:flex; flex-direction:column; transition:.2s}
+  .video:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(53,84,74,.12)}
+  .thumb{position:relative; aspect-ratio:16/9; background:var(--bg2)}
+  .thumb img{width:100%; height:100%; object-fit:cover}
+  .thumb .play{position:absolute; inset:0; display:grid; place-items:center}
+  .thumb .play span{width:54px; height:54px; border-radius:50%; background:rgba(0,0,0,.65);
+                    display:grid; place-items:center; color:#fff; font-size:20px}
+  .video .meta{padding:14px 16px 18px}
+  .video .meta b{display:block; font-size:15.5px; line-height:1.5; margin-bottom:4px}
+  .video .meta span{font-size:13px; color:var(--ink3)}
+
+  /* ── 工具 ── */
+  .tools{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  .tool{padding:24px}
+  .draw-num{font-size:72px; font-weight:800; line-height:1; color:var(--accent); text-align:center; margin:10px 0 4px; font-variant-numeric:tabular-nums}
+  .draw-num.idle{color:var(--ink3); font-size:30px; padding:20px 0}
+  .tool .row{display:flex; gap:10px; justify-content:center; margin-top:14px; flex-wrap:wrap}
+  .pool{font-size:13px; color:var(--ink3); text-align:center; margin-top:10px; line-height:1.6}
+  .timer{font-size:64px; font-weight:800; text-align:center; font-variant-numeric:tabular-nums; color:var(--ink); margin:8px 0}
+  .timer.warn{color:var(--bad)}
+  .presets{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:6px}
+  .presets button{border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 14px;
+                  font-family:inherit; font-size:13px; cursor:pointer; color:var(--ink2)}
+  .presets button:hover{border-color:var(--ink); color:var(--ink)}
+
+  /* ── 對戰 ── */
+  .battle{border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); background:#fff; box-shadow:var(--shadow)}
+  .battle iframe{width:100%; height:600px; border:0; display:block}
+  .note{font-size:14px; color:var(--ink2); margin-top:14px; line-height:1.8}
+
+  /* ── 圖庫 ── */
+  .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px}
+  .filters button{border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 16px;
+                  font-family:inherit; font-size:14px; cursor:pointer; color:var(--ink2)}
+  .filters button.on{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .grid{display:grid; grid-template-columns:repeat(8,1fr); gap:10px}
+  .grid figure{margin:0; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px; cursor:zoom-in; transition:.15s}
+  .grid figure:hover{border-color:var(--accent); transform:translateY(-2px)}
+  .grid img{aspect-ratio:1; object-fit:contain; width:100%}
+  .grid figcaption{font-size:11px; color:var(--ink3); text-align:center; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+  /* ── 下載 ── */
+  .dl{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .dl a{display:flex; flex-direction:column; gap:6px; padding:20px; color:var(--ink)}
+  .dl a b{font-size:16px}
+  .dl a span{font-size:13px; color:var(--ink2)}
+  .dl a em{font-style:normal; font-size:12px; color:var(--accent); font-weight:700}
+
+  /* ── Lightbox ── */
+  .lb{position:fixed; inset:0; background:rgba(28,36,32,.86); display:none; place-items:center; z-index:100; padding:24px}
+  .lb.on{display:grid}
+  .lb img{max-height:78vh; max-width:92vw; background:#fff; border-radius:10px; padding:10px}
+  .lb p{color:#fff; text-align:center; margin:14px 0 0; font-size:15px}
+  .lb .close{position:absolute; top:18px; right:22px; color:#fff; font-size:34px; cursor:pointer; line-height:1}
+
+  footer{padding:40px 0 56px; color:var(--ink3); font-size:13.5px; border-top:1px solid var(--line)}
+  footer a{color:var(--ink2)}
+  .toast{position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(20px);
+         background:var(--ink); color:#fff; padding:10px 20px; border-radius:999px; font-size:14px;
+         opacity:0; pointer-events:none; transition:.25s; z-index:120}
+  .toast.on{opacity:1; transform:translateX(-50%) translateY(0)}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr}
+    .hero h1{font-size:40px}
+    .hero-art{order:-1; max-width:320px}
+    .labs,.videos,.dl{grid-template-columns:1fr}
+    .tools{grid-template-columns:1fr}
+    .grid{grid-template-columns:repeat(4,1fr)}
+    .lesson{grid-template-columns:56px 1fr; padding:18px}
+    .lesson .no{font-size:26px}
+    section{padding:48px 0}
+    h2{font-size:25px}
+    .battle iframe{height:520px}
+  }
+  @media (max-width:520px){
+    .grid{grid-template-columns:repeat(3,1fr)}
+    .hero h1{font-size:34px}
+    .qtext{font-size:18px}
+    .qhead{flex-direction:column; gap:10px}
+    .speak{align-self:flex-start}
+    .draw-num{font-size:56px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">奇妙的溶解</span>
+    <a href="#map">課程地圖</a>
+    <a href="#labs">互動實驗</a>
+    <a href="#deck">教學簡報</a>
+    <a href="#quiz">測驗</a>
+    <a href="#videos">影片</a>
+    <a href="#tools">教學工具</a>
+    <a href="#battle">兩人對戰</a>
+    <a href="#gallery">素材圖庫</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">翰林版 三年級上學期 自然科學</p>
+      <h1>奇妙的溶解</h1>
+      <p class="sub">第 4 單元｜4 節課。從「什麼是溶解」開始，找出讓溶解變快的方法，再用量筒比比看溶液有多濃，最後走進廚房裡的溶解。</p>
+      <div class="chips">
+        <span class="chip"><b>11/30</b> 一</span>
+        <span class="chip"><b>12/3</b> 四</span>
+        <span class="chip"><b>12/7</b> 一</span>
+        <span class="chip"><b>12/10</b> 四</span>
+        <span class="chip">每節 <b>40</b> 分鐘</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn accent" href="#labs">先玩互動實驗</a>
+        <a class="btn ghost" href="#quiz">做 10 題測驗</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="media/img/m007.jpg" alt="食鹽">
+    </div>
+  </div>
+</header>
+
+<section id="map">
+  <div class="wrap">
+    <p class="eyebrow">課程地圖</p>
+    <h2>4 節課，一步一步認識溶解</h2>
+    <p class="lead">每一節都有一個「動手的任務」和一個「要記住的概念」。點標題可跳到該節的簡報頁。</p>
+    <div class="lessons" id="lessonList"></div>
+  </div>
+</section>
+
+<section id="labs">
+  <div class="wrap">
+    <p class="eyebrow">互動實驗室</p>
+    <h2>先猜，再驗證</h2>
+    <p class="lead">上台前先玩一次，隔天實體實驗會更有感覺。三個小活動都對應課堂上的實驗。</p>
+    <div class="labs">
+
+      <div class="lab card">
+        <span class="tag">實驗 ①</span>
+        <h3>溶解大挑戰</h3>
+        <p class="hint">這個東西放進水裡，會溶解嗎？連續判斷 15 個。</p>
+        <div class="stage">
+          <img id="gImg" alt="">
+          <div class="name" id="gName">—</div>
+        </div>
+        <div class="opts">
+          <button id="gYes">會溶解</button>
+          <button id="gNo">不會溶解</button>
+        </div>
+        <div class="fb" id="gFb"></div>
+        <div class="progress" id="gProg"></div>
+      </div>
+
+      <div class="lab card">
+        <span class="tag">實驗 ②</span>
+        <h3>溶解速度模擬</h3>
+        <p class="hint">調整三個條件，看糖大約幾秒溶解完。</p>
+        <div class="stage">
+          <div style="font-size:14px;color:var(--ink2)">估計溶解完的時間</div>
+          <div style="font-size:38px;font-weight:800;color:var(--accent)" id="speedOut">30 秒</div>
+          <div style="font-size:14px;color:var(--ink2);margin-top:6px" id="speedTip">—</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink2);margin-top:12px">攪拌程度：<b id="stirVal">不攪拌</b></div>
+        <input id="stirRange" type="range" min="0" max="10" value="0" style="width:100%;accent-color:var(--accent)">
+        <div style="font-size:13px;color:var(--ink2)">水溫：<b id="tempVal">20℃</b></div>
+        <input id="tempRange" type="range" min="0" max="10" value="0" style="width:100%;accent-color:var(--accent)">
+        <div style="font-size:13px;color:var(--ink2)">顆粒大小：<b id="sizeVal">整塊</b></div>
+        <input id="sizeRange" type="range" min="0" max="10" value="0" style="width:100%;accent-color:var(--accent)">
+        <div class="fb" id="speedFb"></div>
+      </div>
+
+      <div class="lab card">
+        <span class="tag">實驗 ③</span>
+        <h3>量筒怎麼看</h3>
+        <p class="hint">量水的時候，眼睛要放在哪裡才對？</p>
+        <div class="stage">
+          <img id="cyImg" src="media/img/m044.jpg" alt="量筒刻度">
+          <div class="name" id="cyName">下面哪一種讀法是正確的？</div>
+        </div>
+        <div class="opts" id="cyOpts">
+          <button data-v="031"><img src="media/img/m031.jpg" alt="俯視" style="width:100%;display:block;border-radius:8px"></button>
+          <button data-v="033"><img src="media/img/m033.jpg" alt="平視" style="width:100%;display:block;border-radius:8px"></button>
+          <button data-v="032"><img src="media/img/m032.jpg" alt="仰視" style="width:100%;display:block;border-radius:8px"></button>
+        </div>
+        <div class="fb" id="cyFb"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="deck">
+  <div class="wrap">
+    <p class="eyebrow">教學簡報</p>
+    <h2>24 頁，一頁一個重點</h2>
+    <p class="lead">現場投影用簡報檔；這裡是同一份內容的網頁版，可翻頁、可用鍵盤左右鍵。</p>
+    <div class="deck">
+      <div class="frame"><img id="slideImg" src="slides/slide01.jpg" alt="簡報第 1 頁"></div>
+      <div class="bar">
+        <button class="btn ghost" id="prevSlide">← 上一頁</button>
+        <span class="count" id="slideCount">1 / 24</span>
+        <button class="btn" id="nextSlide">下一頁 →</button>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="wrap">
+    <p class="eyebrow">課堂測驗</p>
+    <h2>10 題，檢查你懂了嗎</h2>
+    <p class="lead">每題選一個答案，選完會告訴你對錯和原因。做完看總分。聽不懂題目時，按「🔊 念題目」就會念給你聽。</p>
+    <div class="quiz card qcard" id="quizBox"></div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="wrap">
+    <p class="eyebrow">參考影片</p>
+    <h2>看不懂的地方，看影片</h2>
+    <p class="lead">5 部國小三年級可看的溶解影片，點縮圖到 YouTube 播放。</p>
+    <div class="videos" id="videoList"></div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <p class="eyebrow">教學工具</p>
+    <h2>抽籤與計時器</h2>
+    <p class="lead">抽籤用座號 1～30，抽過不重複；計時器預設 3 分鐘。</p>
+    <div class="tools">
+      <div class="tool card">
+        <h3>抽籤（座號 1–30）</h3>
+        <div class="draw-num idle" id="drawOut">按下面開始</div>
+        <div class="row">
+          <button class="btn accent" id="drawBtn">抽一個</button>
+          <button class="btn ghost" id="drawReset">重設</button>
+        </div>
+        <div class="pool" id="drawPool">剩下 30 個號碼</div>
+      </div>
+      <div class="tool card">
+        <h3>計時器</h3>
+        <div class="timer" id="timerOut">03:00</div>
+        <div class="presets">
+          <button data-sec="60">1 分鐘</button>
+          <button data-sec="120">2 分鐘</button>
+          <button data-sec="180">3 分鐘</button>
+          <button data-sec="300">5 分鐘</button>
+        </div>
+        <div class="row">
+          <button class="btn accent" id="tStart">開始</button>
+          <button class="btn ghost" id="tReset">歸零</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="battle">
+  <div class="wrap">
+    <p class="eyebrow">兩人對戰</p>
+    <h2>溶解知識王：兩人搶答</h2>
+    <p class="lead">同一題目兩人同時看到，先答對得 1 分。10 題結束結算，可再戰。</p>
+    <div class="battle">
+      <iframe id="battleFrame" src="battle.html?embed=1" title="溶解知識王對戰" loading="lazy"></iframe>
+    </div>
+    <p class="note" id="battleNote">
+      載入中…若畫面一直空白，請確認網路連線，或改用教室區網版。
+    </p>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <p class="eyebrow">素材圖庫</p>
+    <h2>81 張上課圖，自由取用</h2>
+    <p class="lead">依課本三小節分成三組。點圖可放大，簡報與學習單都用這批圖。</p>
+    <div class="filters" id="filters">
+      <button class="on" data-g="all">全部 81</button>
+      <button data-g="01">4-1 什麼是溶解</button>
+      <button data-g="02">4-2 快慢與濃淡</button>
+      <button data-g="03">4-3 生活應用</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="downloads">
+  <div class="wrap">
+    <p class="eyebrow">下載</p>
+    <h2>教案、簡報、學習單</h2>
+    <p class="lead">要列印、要修改都可以直接用。</p>
+    <div class="dl" id="dlList">
+      <a class="card" href="downloads/教案_奇妙的溶解.docx" download>
+        <em>DOCX</em><b>教案（4 節）</b><span>含教學流程、評量、板書與省思欄</span>
+      </a>
+      <a class="card" href="downloads/奇妙的溶解_教學簡報.pptx" download>
+        <em>PPTX</em><b>教學簡報</b><span>24 頁，16:9，可直接投影</span>
+      </a>
+      <a class="card" href="downloads/學習單1_什麼是溶解.pdf" download>
+        <em>PDF</em><b>學習單①</b><span>觀察五招與溶解實測記錄</span>
+      </a>
+      <a class="card" href="downloads/學習單2_溶解快慢與濃淡.pdf" download>
+        <em>PDF</em><b>學習單②</b><span>速度實驗、量筒讀數與濃淡比較</span>
+      </a>
+      <a class="card" href="downloads/測驗卷_奇妙的溶解.pdf" download>
+        <em>PDF</em><b>測驗卷</b><span>10 題，附答案與解析</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>奇妙的溶解｜翰林版三年級上學期自然科學 第 4 單元｜教材圖庫 81 張｜115 學年度</p>
+    <p>課程：11/30、12/3、12/7、12/10　｜　<a href="#map">回課程地圖</a>　｜　<a href="battle.html">對戰頁（單獨開）</a></p>
+  </div>
+</footer>
+
+<div class="lb" id="lightbox"><span class="close">&times;</span><img id="lbImg" alt=""><p id="lbCap"></p></div>
+<div class="toast" id="toast"></div>
+
+<script src="media/images.js"></script>
+<script src="battle-api.js"></script>
+<script>
+
+/* ═══════════ 資料 ═══════════ */
+const LESSONS = [
+  { n:1, date:'11/30（一）', title:'什麼是溶解？', sec:'4-1',
+    goal:'能用五種感官安全觀察物質，說出「溶解＝均勻分散、物質沒有消失」。',
+    acts:['觀察五招','分組實測 9 樣','分類海報','破解「消失」迷思'],
+    imgs:['001','002','003','004','011','007','017','016'], slide:3 },
+  { n:2, date:'12/3（四）', title:'溶解的快慢', sec:'4-2',
+    goal:'知道攪拌、提高水溫、顆粒變小都能加快溶解，並用公平條件比較。',
+    acts:['攪拌比一比','溫水與冷水','整塊 vs 敲碎','小組報告'],
+    imgs:['019','040','041','021','022','030','047'], slide:10 },
+  { n:3, date:'12/7（一）', title:'溶液的濃淡', sec:'4-2',
+    goal:'能正確用量筒讀數，比較濃淡，知道溶到不能再溶就是飽和。',
+    acts:['量筒三視角','讀數練習','半匙一匙比較','飽和與冰箱'],
+    imgs:['031','033','032','044','024','025','029','043'], slide:16 },
+  { n:4, date:'12/10（四）', title:'溶解與生活＆知識王', sec:'4-3',
+    goal:'能舉出生活中的溶解並說出理由，完成 10 題測驗與兩人對戰。',
+    acts:['廚房裡的溶解','清潔與溶解','溶解與蒸發','測驗＋對戰'],
+    imgs:['054','058','064','061','049','052','050'], slide:21 }
+];
+
+const SLIDES = [
+  {img:'slides/slide01.jpg'},{img:'slides/slide02.jpg'},{img:'slides/slide03.jpg'},
+  {img:'slides/slide04.jpg'},{img:'slides/slide05.jpg'},{img:'slides/slide06.jpg'},
+  {img:'slides/slide07.jpg'},{img:'slides/slide08.jpg'},{img:'slides/slide09.jpg'},
+  {img:'slides/slide10.jpg'},{img:'slides/slide11.jpg'},{img:'slides/slide12.jpg'},
+  {img:'slides/slide13.jpg'},{img:'slides/slide14.jpg'},{img:'slides/slide15.jpg'},
+  {img:'slides/slide16.jpg'},{img:'slides/slide17.jpg'},{img:'slides/slide18.jpg'},
+  {img:'slides/slide19.jpg'},{img:'slides/slide20.jpg'},{img:'slides/slide21.jpg'},
+  {img:'slides/slide22.jpg'},{img:'slides/slide23.jpg'},{img:'slides/slide24.jpg'}
+];
+
+const QUIZ = [
+  { q:'把食鹽放進水裡攪拌，鹽看不見了，這是什麼現象？',
+    o:['蒸發','溶解','凝固','燃燒'], a:1,
+    e:'食鹽均勻地分散在水裡、看不見顆粒，就是「溶解」。',
+    img:'media/img/m007.jpg' },
+  { q:'鹽溶解在水裡之後，鹽的質量會怎樣？',
+    o:['變少','不變','變多','變成水的質量'], a:1,
+    e:'溶解只是均勻分散，物質本身沒有消失，總質量不變。' },
+  { q:'下列哪一種物質放到水裡不會溶解？',
+    o:['食鹽','砂糖','小石子','黑糖'], a:2,
+    e:'小石子不溶於水、會沉在杯底；食鹽、砂糖、黑糖都會溶解。',
+    img:'media/img/m016.jpg' },
+  { q:'想聞一包粉末的味道，正確的作法是什麼？',
+    o:['鼻子湊近深吸一口','用手輕輕扇，讓氣味飄到鼻子','打開蓋子湊過去','用嘴舔一下'], a:1,
+    e:'手輕輕扇動讓氣味飄到鼻子，既安全又不會吸進太多。',
+    img:'media/img/m004.jpg' },
+  { q:'用量筒的時候如果眼睛是往下俯視，讀出來的數字會怎樣？',
+    o:['偏大','偏小','剛好','讀不出來'], a:0,
+    e:'俯視會看到比實際更高的刻度，所以讀數偏大；仰視則偏小。眼睛要和凹面最低處一樣高。',
+    img:'media/img/m044.jpg' },
+  { q:'同樣多的水，一杯加一平匙糖、一杯加半匙糖，哪一杯比較濃？',
+    o:['加半匙的','一樣濃','加一平匙的','看杯子大小'], a:2,
+    e:'同樣多的水裡，溶解的糖越多，溶液越濃。',
+    img:'media/img/m029.jpg' },
+  { q:'一杯糖水已經溶到不能再溶了，這叫做什麼？',
+    o:['稀溶液','冰水','混合液','飽和溶液'], a:3,
+    e:'溶到某一個程度就不能再溶，這就是「飽和溶液」。再加油，糖只會沉在杯底。',
+    img:'media/img/m043.gif' },
+  { q:'把一杯飽和的糖水放進冰箱冷藏，會有什麼現象？',
+    o:['溶在水裡的糖變少、會析出結晶','糖溶解得更多','水變成冰','什麼都不變'], a:0,
+    e:'溫度降低時能溶解的量變少，多出來的糖就析出結晶。',
+    img:'media/img/m048.jpg' },
+  { q:'下列哪一組做法可以讓糖溶解得更快？',
+    o:['加冷水、不攪拌','加很多糖、不動','加熱水、攪拌、敲碎糖','把糖放進冰箱'], a:2,
+    e:'提高水溫、攪拌、敲碎增加接觸面積，三個方法都會讓溶解變快。',
+    img:'media/img/m019.jpg' },
+  { q:'咖啡裡加了糖，咖啡喝完質量會變少嗎？',
+    o:['會少很多','會變甜','看加多少糖','不會少，是溶在咖啡裡'], a:3,
+    e:'溶解不改變總質量，糖只是均勻分散在咖啡裡——看不見不等於不見。',
+    img:'media/img/m058.jpg' }
+];
+
+const VIDEOS = [
+  { t:'108新課綱｜小三自然｜實驗：觀察物質溶解的現象', u:'https://www.youtube.com/watch?v=vEQzZ0mnq9A', id:'vEQzZ0mnq9A', s:'臺北酷課雲' },
+  { t:'108新課綱｜小三自然｜實驗：如何分辨生活中的常見粉末和顆粒', u:'https://www.youtube.com/watch?v=2CNr7R4KXI8', id:'2CNr7R4KXI8', s:'臺北酷課雲' },
+  { t:'108新課綱｜小三自然｜實驗：增加溶解量的方法', u:'https://www.youtube.com/watch?v=spFv2wNrxPw', id:'spFv2wNrxPw', s:'臺北酷課雲' },
+  { t:'108新課綱｜小三自然｜生活中的溶解應用', u:'https://www.youtube.com/watch?v=9SYR8bgFt9g', id:'9SYR8bgFt9g', s:'臺北酷課雲' },
+  { t:'看見自然 EP9：溶解的生活應用', u:'https://www.youtube.com/watch?v=dvDj2s8Xn5w', id:'dvDj2s8Xn5w', s:'看見系列' }
+];
+
+/* ═══════════ 小工具 ═══════════ */
+const $ = (s) => document.querySelector(s);
+const shuffle = (a) => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(v => v[1]);
+let toastTimer;
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('on');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('on'), 1800); }
+const imgByCode = (code) => (typeof IMAGES !== 'undefined' ? IMAGES.find(x => x.code === code) : null);
+
+/* ═══════════ 課程地圖 ═══════════ */
+(function renderLessons(){
+  const box = $('#lessonList');
+  box.innerHTML = LESSONS.map(L => `
+    <article class="lesson card">
+      <div class="no">${L.n}<small>第 ${L.n} 節</small></div>
+      <div>
+        <h3>${L.title}<span style="font-size:13px;color:var(--ink3);font-weight:400;margin-left:10px">${L.sec}｜${L.date}</span></h3>
+        <p class="goal">${L.goal}</p>
+        <ul class="acts">${L.acts.map(a => `<li>${a}</li>`).join('')}</ul>
+        <div class="imgs">${L.imgs.map(c => { const im = imgByCode(c); return im ? `<img src="${im.h}" alt="${im.name}" title="${im.name}">` : ''; }).join('')}</div>
+        <p style="margin:12px 0 0"><a href="#deck" data-slide="${L.slide}" class="jump">看這節的簡報 →</a></p>
+      </div>
+    </article>`).join('');
+  box.querySelectorAll('.jump').forEach(a => a.addEventListener('click', () => {
+    goSlide(parseInt(a.dataset.slide, 10) - 1);
+  }));
+})();
+
+/* ═══════════ 實驗①：溶解大挑戰 ═══════════ */
+const SOLVE_ITEMS = [
+  { c:'007', name:'食鹽',   yes:true,  why:'食鹽溶在水裡，攪一攪就不見顆粒了。' },
+  { c:'008', name:'白砂糖', yes:true,  why:'糖溶在水中，是甜的溶液。' },
+  { c:'017', name:'蜂蜜',   yes:true,  why:'蜂蜜溶在水中，變成蜂蜜水。' },
+  { c:'018', name:'黑糖',   yes:true,  why:'黑糖溶在水裡，變成深色的糖水。' },
+  { c:'051', name:'小蘇打粉', yes:true, why:'小蘇打能溶於水，所以可以拿來清洗。' },
+  { c:'059', name:'維他命粉', yes:true, why:'維他命粉溶在開水裡，就變成有味道的水。' },
+  { c:'060', name:'洗衣粉', yes:true,  why:'洗衣粉溶在水裡，才能把油汙帶走。' },
+  { c:'005', name:'粗砂',   yes:false, why:'砂子不溶於水，放久會沉在杯底。' },
+  { c:'006', name:'細沙',   yes:false, why:'沙子不溶於水，攪拌後還是會沉下去。' },
+  { c:'016', name:'小石子', yes:false, why:'石頭不溶於水，只是沉在杯子裡。' },
+  { c:'042', name:'芝麻',   yes:false, why:'芝麻不溶於水，撈起來還看得到。' },
+  { c:'015', name:'麵粉',   yes:false, why:'麵粉只是和水攪成糊狀，顆粒還在，不是溶解。' },
+  { c:'012', name:'黑胡椒粒', yes:false, why:'胡椒不溶於水，只是散在水裡。' },
+  { c:'013', name:'辣椒粉', yes:false, why:'辣椒粉不溶於水，會沉在杯底。', ext:'gif' },
+  { c:'043', name:'胡椒粉', yes:false, why:'胡椒粉不溶於水，攪拌只是把它散開。', ext:'gif' }
+];
+
+(function gameDissolve(){
+  let deck = shuffle(SOLVE_ITEMS), i = 0, score = 0, locked = false;
+  const gImg = $('#gImg'), gName = $('#gName'), gFb = $('#gFb'), gProg = $('#gProg');
+  const yesBtn = $('#gYes'), noBtn = $('#gNo');
+
+  function show(){
+    if (i >= deck.length){ finish(); return; }
+    const it = deck[i];
+    gImg.src = 'media/img/m' + it.c + (it.ext === 'gif' ? '.gif' : '.jpg');
+    gImg.alt = it.name;
+    gName.textContent = it.name;
+    gFb.textContent = '';
+    gFb.className = 'fb';
+    gProg.textContent = `第 ${i + 1} / ${deck.length} 題　已答對 ${score} 題`;
+    yesBtn.disabled = noBtn.disabled = false;
+    locked = false;
+  }
+  function answer(choice){
+    if (locked) return; locked = true;
+    const it = deck[i];
+    const right = choice === it.yes;
+    if (right) score++;
+    gFb.textContent = (right ? '✓ 答對了！' : '✗ 再想想。') + it.why;
+    gFb.className = 'fb ' + (right ? 'ok' : 'bad');
+    gProg.textContent = `第 ${i + 1} / ${deck.length} 題　已答對 ${score} 題`;
+    yesBtn.disabled = noBtn.disabled = true;
+    setTimeout(() => { i++; show(); }, 1600);
+  }
+  function finish(){
+    gImg.src = 'media/img/m007.jpg';
+    gName.textContent = `全部完成！答對 ${score} / ${deck.length}`;
+    gFb.textContent = score >= deck.length * 0.8
+      ? '太厲害了！溶解＝看不見顆粒、均勻分散；攪成糊、沉在底部都不算溶解。'
+      : '再玩一次：注意「攪成糊狀」跟「完全溶解」是不一樣的。';
+    gFb.className = 'fb ' + (score >= deck.length * 0.8 ? 'ok' : 'bad');
+    gProg.innerHTML = '<a href="#" id="againBtn">再玩一次 →</a>';
+    document.getElementById('againBtn').addEventListener('click', (e) => {
+      e.preventDefault(); deck = shuffle(SOLVE_ITEMS); i = 0; score = 0; show();
+    });
+  }
+  yesBtn.addEventListener('click', () => answer(true));
+  noBtn.addEventListener('click', () => answer(false));
+  show();
+})();
+
+/* ═══════════ 實驗②：溶解速度模擬 ═══════════ */
+(function speedSim(){
+  const stir = $('#stirRange'), temp = $('#tempRange'), size = $('#sizeRange');
+  const update = () => {
+    const s = +stir.value, t = +temp.value, z = +size.value;
+    const secs = Math.max(3, Math.round(30 / (1 + s * 0.08 + t * 0.09 + z * 0.06)));
+    $('#speedOut').textContent = secs + ' 秒';
+    $('#stirVal').textContent = s === 0 ? '不攪拌' : (s < 4 ? '輕輕攪' : (s < 8 ? '正常攪拌' : '大力攪拌'));
+    $('#tempVal').textContent = (20 + t * 6) + '℃';
+    $('#sizeVal').textContent = z === 0 ? '整塊' : (z < 4 ? '小塊' : (z < 8 ? '碎塊' : '磨成粉'));
+    const contrib = [['攪拌程度', s * 0.08], ['水溫', t * 0.09], ['顆粒大小', z * 0.06]];
+    contrib.sort((a, b) => b[1] - a[1]);
+    $('#speedTip').textContent = '目前影響最大的是「' + contrib[0][0] + '」';
+    $('#speedFb').textContent = '提醒：做比較實驗時，一次只改一個條件，結果才公平。';
+  };
+  [stir, temp, size].forEach(r => r.addEventListener('input', update));
+  update();
+})();
+
+/* ═══════════ 實驗③：量筒怎麼看 ═══════════ */
+(function cylinder(){
+  const fb = $('#cyFb');
+  document.querySelectorAll('#cyOpts button').forEach(b => {
+    b.addEventListener('click', () => {
+      const v = b.dataset.v;
+      if (v === '033'){
+        fb.textContent = '✓ 答對了！眼睛要與凹面最低處一樣高（平視），讀數才正確。';
+        fb.className = 'fb ok';
+      } else if (v === '031'){
+        fb.textContent = '✗ 俯視會看到比實際更高的刻度，讀數偏大。';
+        fb.className = 'fb bad';
+      } else {
+        fb.textContent = '✗ 仰視會看到比實際更低的刻度，讀數偏小。';
+        fb.className = 'fb bad';
+      }
+    });
+  });
+})();
+
+/* ═══════════ 簡報播放器 ═══════════ */
+let slideIdx = 0;
+function goSlide(n){
+  slideIdx = Math.max(0, Math.min(SLIDES.length - 1, n));
+  $('#slideImg').src = SLIDES[slideIdx].img;
+  $('#slideImg').alt = '簡報第 ' + (slideIdx + 1) + ' 頁';
+  $('#slideCount').textContent = (slideIdx + 1) + ' / ' + SLIDES.length;
+  document.querySelectorAll('#thumbs img').forEach((im, i) => im.classList.toggle('on', i === slideIdx));
+}
+(function deck(){
+  $('#thumbs').innerHTML = SLIDES.map((s, i) => `<img src="${s.img}" data-i="${i}" alt="第 ${i + 1} 頁" loading="lazy">`).join('');
+  $('#thumbs').addEventListener('click', (e) => {
+    const t = e.target.closest('img'); if (t) goSlide(parseInt(t.dataset.i, 10));
+  });
+  $('#prevSlide').addEventListener('click', () => goSlide(slideIdx - 1));
+  $('#nextSlide').addEventListener('click', () => goSlide(slideIdx + 1));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') goSlide(slideIdx + 1);
+    if (e.key === 'ArrowLeft') goSlide(slideIdx - 1);
+  });
+  goSlide(0);
+})();
+
+/* ═══════════ 語音朗讀（Web Speech API） ═══════════ */
+const SPEECH_OK = ('speechSynthesis' in window) && (typeof SpeechSynthesisUtterance !== 'undefined');
+let speakBtnOn = null, zhVoice = null;
+
+function pickZhVoice(){
+  if (!SPEECH_OK) return null;
+  const vs = window.speechSynthesis.getVoices() || [];
+  if (!vs.length) return null;
+  const res = [/zh[-_]TW/i, /Chinese.*(Taiwan|Traditional)/i, /Hanhan|Yating|HsiaoChen|Zhiwei|Tingting/i, /^zh/i];
+  for (const re of res){
+    const v = vs.find(x => re.test((x.lang || '') + ' ' + (x.name || '')));
+    if (v) return v;
+  }
+  return null;
+}
+if (SPEECH_OK){
+  zhVoice = pickZhVoice();
+  if (typeof window.speechSynthesis.addEventListener === 'function'){
+    window.speechSynthesis.addEventListener('voiceschanged', () => { zhVoice = pickZhVoice(); });
+  }
+}
+function stopSpeak(){
+  if (!SPEECH_OK) return;
+  try { window.speechSynthesis.cancel(); } catch (e) {}
+  if (speakBtnOn){
+    speakBtnOn.classList.remove('on');
+    speakBtnOn.textContent = '🔊 念題目';
+    speakBtnOn = null;
+  }
+}
+function speakText(text, btn){
+  if (!SPEECH_OK){ toast('這個瀏覽器不支援語音朗讀，請改用 Chrome、Edge 或 Safari'); return; }
+  if (btn.classList.contains('on')){ stopSpeak(); return; }
+  stopSpeak();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'zh-TW'; u.rate = 0.9; u.pitch = 1; u.volume = 1;
+  const v = zhVoice || pickZhVoice(); if (v) u.voice = v;
+  const done = () => {
+    if (speakBtnOn === btn){ btn.classList.remove('on'); btn.textContent = '🔊 念題目'; speakBtnOn = null; }
+  };
+  u.onend = done; u.onerror = done;
+  speakBtnOn = btn; btn.classList.add('on'); btn.textContent = '⏹ 停止';
+  window.speechSynthesis.speak(u);
+}
+function quizSpeech(q, idx){
+  return `第 ${idx + 1} 題。${q.q}。選項：` + q.o.map((o, k) => `${'ABCD'[k]}，${o}`).join('。') + '。';
+}
+
+/* ═══════════ 測驗 ═══════════ */
+(function quiz(){
+  const box = $('#quizBox');
+  let i = 0, score = 0, log = [];
+
+  function start(){
+    stopSpeak();
+    i = 0; score = 0; log = []; render();
+  }
+  function render(){
+    stopSpeak();
+    if (i >= QUIZ.length) return result();
+    const q = QUIZ[i];
+    const speakBtn = SPEECH_OK
+      ? `<button class="speak" id="qSpeak" type="button" title="朗讀題目與選項">🔊 念題目</button>` : '';
+    box.innerHTML = `
+      ${q.img ? `<img class="qimg" src="${q.img}" alt="題目附圖">` : ''}
+      <div class="qhead">
+        <p class="qtext">${i + 1}. ${q.q}</p>
+        ${speakBtn}
+      </div>
+      <div class="qopts">${q.o.map((o, k) =>
+        `<button class="qopt" data-k="${k}"><span class="k">${'ABCD'[k]}</span><span>${o}</span></button>`).join('')}</div>
+      <div class="qfb" id="qfb"></div>
+      <div class="qbar"><span>第 ${i + 1} / ${QUIZ.length} 題</span><span>答對 ${score} 題</span></div>`;
+    box.querySelectorAll('.qopt').forEach(b => b.addEventListener('click', () => pick(parseInt(b.dataset.k, 10))));
+    if (SPEECH_OK){
+      const sb = box.querySelector('#qSpeak');
+      sb.addEventListener('click', () => speakText(quizSpeech(q, i), sb));
+    }
+  }
+  function pick(k){
+    stopSpeak();
+    const q = QUIZ[i];
+    box.querySelectorAll('.qopt').forEach((b, idx) => {
+      b.disabled = true;
+      if (idx === q.a) b.classList.add('ok');
+      if (idx === k && k !== q.a) b.classList.add('bad');
+    });
+    const right = k === q.a;
+    if (right) score++;
+    log.push({ right });
+    const fb = $('#qfb');
+    fb.className = 'qfb show';
+    fb.innerHTML = (right ? '<b>✓ 答對了</b>' : `<b>✗ 答案是 ${'ABCD'[q.a]}</b>`) + '<br>' + q.e +
+      `<div style="margin-top:12px"><button class="btn" id="qnext">${i + 1 === QUIZ.length ? '看結果' : '下一題 →'}</button></div>`;
+    $('#qnext').addEventListener('click', () => { i++; render(); });
+  }
+  function result(){
+    const pct = Math.round(score / QUIZ.length * 100);
+    const msg = pct === 100 ? '完美！你已經是溶解小達人。'
+      : pct >= 80 ? '很厲害，再複習錯的那一題就好。'
+      : pct >= 60 ? '不錯，把「磁極」和「鐵製品」再看一次。'
+      : '別急，回到互動實驗室再玩一輪。';
+    box.innerHTML = `<div class="result">
+      <div class="score">${score}<small> / ${QUIZ.length}</small></div>
+      <p style="font-size:19px;margin:18px 0 6px">${msg}</p>
+      <p style="color:var(--ink2)">答對率 ${pct}%</p>
+      <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn accent" id="qagain">再測一次</button>
+        <a class="btn ghost" href="#battle">去兩人對戰</a>
+      </div></div>`;
+    $('#qagain').addEventListener('click', start);
+  }
+  start();
+})();
+
+/* ═══════════ 影片 ═══════════ */
+(function videos(){
+  $('#videoList').innerHTML = VIDEOS.map(v => `
+    <a class="video card" href="${v.u}" target="_blank" rel="noopener">
+      <div class="thumb">
+        <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${v.t}" loading="lazy">
+        <div class="play"><span>▶</span></div>
+      </div>
+      <div class="meta"><b>${v.t}</b><span>${v.s} ・ YouTube</span></div>
+    </a>`).join('');
+})();
+
+/* ═══════════ 抽籤 ═══════════ */
+(function draw(){
+  const TOTAL = 30;
+  let pool = [];
+  const out = $('#drawOut'), poolTxt = $('#drawPool');
+  const reset = () => { pool = Array.from({ length: TOTAL }, (_, i) => i + 1); poolTxt.textContent = `剩下 ${pool.length} 個號碼`; };
+  reset();
+  $('#drawBtn').addEventListener('click', () => {
+    if (!pool.length){ toast('30 個號碼都抽完了，按「重設」再來'); return; }
+    const k = Math.floor(Math.random() * pool.length);
+    const n = pool.splice(k, 1)[0];
+    out.textContent = n;
+    out.classList.remove('idle');
+    poolTxt.textContent = `剩下 ${pool.length} 個號碼：` + (pool.length ? pool.join('、') : '（已抽完）');
+  });
+  $('#drawReset').addEventListener('click', () => { reset(); out.textContent = '按下面開始'; out.classList.add('idle'); });
+})();
+
+/* ═══════════ 計時器 ═══════════ */
+(function timer(){
+  let total = 180, left = 180, tick = null;
+  const out = $('#timerOut'), startBtn = $('#tStart');
+  const fmt = (s) => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+  const paint = () => { out.textContent = fmt(left); out.classList.toggle('warn', left <= 10); };
+  function stop(){ clearInterval(tick); tick = null; startBtn.textContent = '開始'; }
+  startBtn.addEventListener('click', () => {
+    if (tick){ stop(); return; }
+    if (left === 0) left = total;
+    startBtn.textContent = '暫停';
+    tick = setInterval(() => {
+      left--; paint();
+      if (left <= 0){ stop(); toast('時間到！'); }
+    }, 1000);
+  });
+  $('#tReset').addEventListener('click', () => { stop(); left = total; paint(); });
+  document.querySelectorAll('.presets button').forEach(b => b.addEventListener('click', () => {
+    stop(); total = parseInt(b.dataset.sec, 10); left = total; paint();
+  }));
+  paint();
+})();
+
+/* ═══════════ 圖庫 ═══════════ */
+(function gallery(){
+  const grid = $('#grid');
+  const render = (g) => {
+    const list = (typeof IMAGES === 'undefined' ? [] : IMAGES).filter(im => g === 'all' || im.g === g);
+    grid.innerHTML = list.map(im => `
+      <figure data-full="${im.f}" data-name="${im.name}">
+        <img src="${im.h}" alt="${im.name}" loading="lazy">
+        <figcaption>${im.name}</figcaption>
+      </figure>`).join('');
+    $('#filters').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.g === g));
+  };
+  $('#filters').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (b) render(b.dataset.g);
+  });
+  grid.addEventListener('click', (e) => {
+    const f = e.target.closest('figure'); if (!f) return;
+    $('#lbImg').src = f.dataset.full;
+    $('#lbCap').textContent = f.dataset.name;
+    $('#lightbox').classList.add('on');
+  });
+  $('#lightbox').addEventListener('click', () => $('#lightbox').classList.remove('on'));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $('#lightbox').classList.remove('on'); });
+  render('all');
+})();
+
+/* ═══════════ 對戰說明 ═══════════ */
+(function battleNote(){
+  const api = (window.BATTLE_API || '').trim();
+  const note = $('#battleNote');
+  if (api){
+    note.innerHTML = `線上版：兩個學生各自開這個網頁，捲到這一區，輸入名字就會自動配對。<br>
+      老師也可以直接開 <a href="battle.html">對戰頁</a>。第一次連線若停在「正在連線」，是後端剛睡醒，等 30～60 秒。`;
+  } else {
+    note.innerHTML = `目前是「教室區網」模式：請老師先雙擊 <code>start-battle.bat</code>，
+      學生再開 <code>http://老師電腦IP:8765/battle.html</code>。`;
+  }
+})();
+</script>
+</body>
+</html>
